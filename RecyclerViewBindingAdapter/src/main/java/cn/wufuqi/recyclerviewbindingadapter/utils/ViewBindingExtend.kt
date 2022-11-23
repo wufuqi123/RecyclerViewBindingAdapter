@@ -6,12 +6,16 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cn.wufuqi.recyclerviewbindingadapter.extend.setViewData
 import cn.wufuqi.recyclerviewbindingadapter.itemuibean.BaseBindingAdapterItem
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 
 object ViewBindingExtend {
 
@@ -121,24 +125,24 @@ object ViewBindingExtend {
         }
     }
 
-//    @BindingAdapter("image")
-//    @JvmStatic
-//    fun setImage(view: ImageView, bitmap: Bitmap) {
-//        Glide.with(view.context).load(bitmap).into(view)
-//    }
-//
-//    @BindingAdapter("src")
-//    @JvmStatic
-//    fun setSrc(view: ImageView, bitmap: Bitmap) {
-//        Glide.with(view.context).load(bitmap).into(view)
-//    }
+    @BindingAdapter("image")
+    @JvmStatic
+    fun setImage(view: ImageView, bitmap: Bitmap) {
+        Glide.with(view.context).load(bitmap).into(view)
+    }
+
+    @BindingAdapter("src")
+    @JvmStatic
+    fun setSrc(view: ImageView, bitmap: Bitmap) {
+        Glide.with(view.context).load(bitmap).into(view)
+    }
 
 
-//    @BindingAdapter("image")
-//    @JvmStatic
-//    fun setImage(view: ImageView, resId: Int) {
-//        Glide.with(view.context).load(resId).into(view)
-//    }
+    @BindingAdapter("image")
+    @JvmStatic
+    fun setImage(view: ImageView, resId: Int) {
+        Glide.with(view.context).load(resId).into(view)
+    }
 
     @BindingAdapter("background")
     @JvmStatic
@@ -158,56 +162,23 @@ object ViewBindingExtend {
         view.background = BitmapDrawable(bitmap)
     }
 
-//    @BindingAdapter("src")
-//    @JvmStatic
-//    fun setSrc(view: ImageView, resId: Int) {
-//        Glide.with(view.context).load(resId).into(view)
-//    }
+    @BindingAdapter("src")
+    @JvmStatic
+    fun setSrc(view: ImageView, resId: Int) {
+        Glide.with(view.context).load(resId).into(view)
+    }
 
-//    @BindingAdapter("srcCircularBeadTen")
-//    @JvmStatic
-//    fun srcCircularBeadTen(view: ImageView, resId: Int) {
-//        val rc = RoundedCorners(10f.dp2px().toInt())
-//        val options = RequestOptions.bitmapTransform(rc)
-//        Glide.with(view.context).load(resId).apply(options).into(view)
-//    }
-//
-//    @BindingAdapter("srcCircularBeadTen")
-//    @JvmStatic
-//    fun srcCircularBeadTen(view: ImageView, url: String) {
-//        val rc = RoundedCorners(10f.dp2px().toInt())
-//        val options = RequestOptions.bitmapTransform(rc)
-//        Glide.with(view.context).load(url).apply(options).into(view)
-//    }
-//
-//
-//    @BindingAdapter("imageCircularBeadTen")
-//    @JvmStatic
-//    fun imageCircularBeadTen(view: ImageView, resId: Int) {
-//        val rc = RoundedCorners(10f.dp2px().toInt())
-//        val options = RequestOptions.bitmapTransform(rc)
-//        Glide.with(view.context).load(resId).apply(options).into(view)
-//    }
-//
-//    @BindingAdapter("imageCircularBeadTen")
-//    @JvmStatic
-//    fun imageCircularBeadTen(view: ImageView, url: String) {
-//        val rc = RoundedCorners(10f.dp2px().toInt())
-//        val options = RequestOptions.bitmapTransform(rc)
-//        Glide.with(view.context).load(url).apply(options).into(view)
-//    }
-//
-//    @BindingAdapter("image")
-//    @JvmStatic
-//    fun setImage(view: ImageView, url: String) {
-//        Glide.with(view.context).load(url).into(view)
-//    }
-//
-//    @BindingAdapter("src")
-//    @JvmStatic
-//    fun setSrc(view: ImageView, url: String) {
-//        Glide.with(view.context).load(url).into(view)
-//    }
+    @BindingAdapter("image")
+    @JvmStatic
+    fun setImage(view: ImageView, url: String) {
+        Glide.with(view.context).load(url).into(view)
+    }
+
+    @BindingAdapter("src")
+    @JvmStatic
+    fun setSrc(view: ImageView, url: String) {
+        Glide.with(view.context).load(url).into(view)
+    }
 
     @BindingAdapter("textStyle")
     @JvmStatic
