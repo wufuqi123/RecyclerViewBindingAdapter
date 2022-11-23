@@ -11,7 +11,7 @@ import cn.wufuqi.eventemitter.EventEmitter
 abstract class BaseEventBindingAdapterItem : BaseBindingAdapterItem() {
 
     /**
-     * 初始化要发送的时间名
+     * 初始化要发送的事件名
      *
      * 必须在activity或fragment的onDestroy内调用Adapter的  destroyEvent()方法
      * 否则会造成严重的内存泄露
