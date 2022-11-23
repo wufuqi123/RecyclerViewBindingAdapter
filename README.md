@@ -1,0 +1,2 @@
+# RecyclerViewBindingAdapter
+使用ViewBinding来做适配RecyclerView的万能adapter，不用写adapter，直接设置data数据，ui即可展示
