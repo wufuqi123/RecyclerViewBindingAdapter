@@ -52,7 +52,6 @@ class AdapterActivityCallbacks : Application.ActivityLifecycleCallbacks {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityDestroyed(activity: Activity) {
         RecyclerViewBindingAdapterDestroyUtils.destroyActivity(activity)
         val fragmentLifecycleCallbacks = mFragmentLifecycleCallbacksMap[activity]
@@ -62,10 +61,13 @@ class AdapterActivityCallbacks : Application.ActivityLifecycleCallbacks {
             )
         } else {
             if (fragmentLifecycleCallbacks is FragmentLifecycleCallbacks) {
-                activity.fragmentManager.unregisterFragmentLifecycleCallbacks(
-                    fragmentLifecycleCallbacks
-                )
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    activity.fragmentManager.unregisterFragmentLifecycleCallbacks(
+                        fragmentLifecycleCallbacks
+                    )
+                }
             }
         }
+        mFragmentLifecycleCallbacksMap.remove(activity)
     }
 }
