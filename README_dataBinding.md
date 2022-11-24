@@ -94,11 +94,6 @@
     设置 src
 
 
-## app:src="String"
-    ImageView 中使用
-
-    设置 src
-
 
 ## app:background="Bitmap"
     ImageView 中使用

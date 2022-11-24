@@ -13,9 +13,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cn.wufuqi.recyclerviewbindingadapter.extend.setViewData
 import cn.wufuqi.recyclerviewbindingadapter.itemuibean.BaseBindingAdapterItem
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 
 object ViewBindingExtend {
 
@@ -128,20 +125,20 @@ object ViewBindingExtend {
     @BindingAdapter("image")
     @JvmStatic
     fun setImage(view: ImageView, bitmap: Bitmap) {
-        Glide.with(view.context).load(bitmap).into(view)
+        view.setImageBitmap(bitmap)
     }
 
     @BindingAdapter("src")
     @JvmStatic
     fun setSrc(view: ImageView, bitmap: Bitmap) {
-        Glide.with(view.context).load(bitmap).into(view)
+        view.setImageBitmap(bitmap)
     }
 
 
     @BindingAdapter("image")
     @JvmStatic
     fun setImage(view: ImageView, resId: Int) {
-        Glide.with(view.context).load(resId).into(view)
+        view.setImageResource(resId)
     }
 
     @BindingAdapter("background")
@@ -165,20 +162,9 @@ object ViewBindingExtend {
     @BindingAdapter("src")
     @JvmStatic
     fun setSrc(view: ImageView, resId: Int) {
-        Glide.with(view.context).load(resId).into(view)
+        view.setImageResource(resId)
     }
 
-    @BindingAdapter("image")
-    @JvmStatic
-    fun setImage(view: ImageView, url: String) {
-        Glide.with(view.context).load(url).into(view)
-    }
-
-    @BindingAdapter("src")
-    @JvmStatic
-    fun setSrc(view: ImageView, url: String) {
-        Glide.with(view.context).load(url).into(view)
-    }
 
     @BindingAdapter("textStyle")
     @JvmStatic

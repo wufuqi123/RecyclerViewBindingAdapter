@@ -50,5 +50,5 @@ dependencies {
 
 //    implementation project(path: ':RecyclerViewBindingAdapter')
 
-    implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.1'
+    implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.1_base'
 }

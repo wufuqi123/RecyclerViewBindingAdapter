@@ -1,5 +1,7 @@
 ```
    使用ViewBinding来做适配RecyclerView的万能adapter，不用写adapter，直接设置data数据，ui即可展示
+
+   不包含 Glide
 ```
 
 #### 基础功能
@@ -8,7 +10,7 @@
     请在 build.gradle 下添加依赖。
 
     ``` 
-        implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.1'
+        implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.1_base'
     ```
 
 2. 设置jdk8或更高版本
