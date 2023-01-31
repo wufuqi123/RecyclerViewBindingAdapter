@@ -12,9 +12,9 @@ object RecyclerViewBindingAdapterDestroyUtils {
     /**
      * 销毁activity
      */
-    fun destroyActivity(activity: Activity) {
+    fun destroyActivity(activity: Activity?) {
         destroyRecyclerViewBindingAdapter(
-            (activity.findViewById<ViewGroup>(android.R.id.content)).getChildAt(
+            (activity?.findViewById<ViewGroup>(android.R.id.content))?.getChildAt(
                 0
             )
         )
@@ -24,7 +24,10 @@ object RecyclerViewBindingAdapterDestroyUtils {
     /**
      * 销毁 RecyclerViewBindingAdapter
      */
-    fun destroyRecyclerViewBindingAdapter(view: View) {
+    fun destroyRecyclerViewBindingAdapter(view: View?) {
+        if (view == null) {
+            return
+        }
         if (view is RecyclerView) {
             if (view.adapter is RecyclerViewBindingAdapter) {
                 (view.adapter as RecyclerViewBindingAdapter).destroy()
