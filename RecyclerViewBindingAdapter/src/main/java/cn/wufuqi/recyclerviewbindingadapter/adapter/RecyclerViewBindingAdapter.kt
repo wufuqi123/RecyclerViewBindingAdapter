@@ -524,6 +524,7 @@ open class RecyclerViewBindingAdapter :
                     return@forEach
                 }
             }
+            binding.executePendingBindings()
             if (!isSetView) {
                 throw NotFondDataBindingDataError(TAG + "异常，动态绑定时未找到item的data\n传递的item类型为：${item::class.java.name}\n在xml布局中未找到！！！")
             }
