@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import cn.wufuqi.recyclerviewbindingadapter.extend.event
+import cn.wufuqi.recyclerviewbindingadapter.extend.removeViewData
 import cn.wufuqi.recyclerviewbindingadapter.extend.setViewData
 import cn.wufuqi.recyclerviewbindingadapter.utils.viewBindingFragment
 import cn.wufuqi.test.databinding.FragmentTest1Binding
@@ -21,7 +23,7 @@ class Test1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         for (i in 0..100) {
-            data.add(TextItemViewData())
+            data.add(TextItemViewData(i))
         }
         return inflater.inflate(R.layout.fragment_test_1, null)
     }
@@ -30,6 +32,11 @@ class Test1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mBinding.rvContent.setViewData(data)
+
+        mBinding.rvContent.event.on("itemDeleteClick"){
+            val position = it[0] as Int
+            mBinding.rvContent.removeViewData(position)
+        }
     }
 
 

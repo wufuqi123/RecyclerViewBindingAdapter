@@ -9,7 +9,7 @@ class MainActivityViewData : BaseObservable() {
 
     init {
         for (i in 0..100) {
-            data.add(TextItemViewData())
+            data.add(TextItemViewData(i))
         }
         notifyChange()
     }

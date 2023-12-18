@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdkVersion 33
-    buildToolsVersion "32.0.0"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "cn.wufuqi.recyclerviewbindingadapter"
@@ -48,7 +48,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-//    implementation project(path: ':RecyclerViewBindingAdapter')
+    //删除
+    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
 
-    implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.1'
+    // implementation project(path: ':RecyclerViewBindingAdapter')
+
+    implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.6'
 }

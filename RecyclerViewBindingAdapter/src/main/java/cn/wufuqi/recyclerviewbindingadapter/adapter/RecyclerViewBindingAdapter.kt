@@ -221,7 +221,7 @@ open class RecyclerViewBindingAdapter :
             //把item的事件转发到adapte中
             item.initEventEmitNames().forEach {
                 item.event.on(it) { args ->
-                    event.emit(it, position, *args.toTypedArray())
+                    event.emit(it, item.currItemPosition, *args.toTypedArray())
                 }
             }
         }
@@ -231,7 +231,7 @@ open class RecyclerViewBindingAdapter :
         item.notifyChange()
 
 
-        onItemBinding(holder.binding, position)
+        onItemBinding(holder.binding, item.currItemPosition)
 
     }
 
@@ -327,9 +327,22 @@ open class RecyclerViewBindingAdapter :
     }
 
 
+    /**
+     * 重置位置
+     */
+    private fun resetPosition(){
+        for(position in mDatas.indices){
+            val item = mDatas[position]
+            item.currItemPosition = position
+            item.itemCount = itemCount
+            item.notifyChange()
+        }
+    }
+
     open fun add(item: BaseBindingAdapterItem) {
         val position: Int = mDatas.size
         (mDatas as ArrayList).add(item)
+        resetPosition()
         notifyItemInserted(position)
         clearRefresh()
     }
@@ -345,6 +358,7 @@ open class RecyclerViewBindingAdapter :
         clearRefresh()
         val positionStart: Int = mDatas.size
         (mDatas as ArrayList).addAll(collection)
+        resetPosition()
         notifyItemRangeInserted(positionStart, collection.size)
     }
 
@@ -352,6 +366,7 @@ open class RecyclerViewBindingAdapter :
         clearRefresh()
         val positionStart: Int = mDatas.size
         Collections.addAll((mDatas as ArrayList), *t)
+        resetPosition()
         notifyItemRangeInserted(positionStart, t.size)
     }
 
@@ -373,6 +388,7 @@ open class RecyclerViewBindingAdapter :
         }
         clearRefresh()
         (mDatas as ArrayList).addAll(indexInt, collection)
+        resetPosition()
         notifyItemRangeInserted(indexInt, collection.size)
     }
 
@@ -394,6 +410,7 @@ open class RecyclerViewBindingAdapter :
         }
         clearRefresh()
         (mDatas as ArrayList).add(indexInt, item)
+        resetPosition()
         notifyItemInserted(indexInt)
     }
 
@@ -402,12 +419,14 @@ open class RecyclerViewBindingAdapter :
         val position: Int = mDatas.indexOf(item)
         if (-1 == position) return
         (mDatas as ArrayList).remove(item)
+        resetPosition()
         notifyItemRemoved(position)
     }
 
     open fun remove(position: Int) {
         clearRefresh()
         (mDatas as ArrayList).removeAt(position)
+        resetPosition()
         notifyItemRemoved(position)
     }
 
@@ -432,6 +451,7 @@ open class RecyclerViewBindingAdapter :
         if (mIncrementRefreshPositionStart < 0) {
             return
         }
+        resetPosition()
         notifyItemRangeInserted(mIncrementRefreshPositionStart, mIncrementRefreshCount)
         clearRefresh()
     }

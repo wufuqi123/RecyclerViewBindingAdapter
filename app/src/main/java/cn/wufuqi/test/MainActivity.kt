@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 //        mBinding.data = MainActivityViewData()
 
-
         supportFragmentManager.beginTransaction().add(R.id.fl, mTest1Fragment)
             .add(R.id.fl, mTest2Fragment).replace(R.id.fl, mTest1Fragment).commit()
 

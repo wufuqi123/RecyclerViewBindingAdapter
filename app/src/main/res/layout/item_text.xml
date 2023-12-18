@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,9 +9,28 @@
             type="cn.wufuqi.test.item_data.TextItemViewData" />
     </data>
 
-    <androidx.appcompat.widget.AppCompatTextView
+
+    <com.mcxtzhang.swipemenulib.SwipeMenuLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@{data.getText()}" />
+        tools:ignore="MissingClass">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{data.getText()}" />
+
+
+        <TextView
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:background="#FF4B6C"
+            android:gravity="center"
+            android:onClick="@{()->data.itemDeleteClick()}"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
+
+    </com.mcxtzhang.swipemenulib.SwipeMenuLayout>
 
 </layout>
