@@ -56,9 +56,11 @@ class AdapterActivityCallbacks : Application.ActivityLifecycleCallbacks {
         RecyclerViewBindingAdapterDestroyUtils.destroyActivity(activity)
         val fragmentLifecycleCallbacks = mFragmentLifecycleCallbacksMap[activity]
         if (fragmentLifecycleCallbacks is SupportFragmentLifecycleCallbacks) {
-            (activity as AppCompatActivity).supportFragmentManager.unregisterFragmentLifecycleCallbacks(
-                fragmentLifecycleCallbacks
-            )
+            if(activity is AppCompatActivity){
+                activity.supportFragmentManager.unregisterFragmentLifecycleCallbacks(
+                    fragmentLifecycleCallbacks
+                )
+            }
         } else {
             if (fragmentLifecycleCallbacks is FragmentLifecycleCallbacks) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

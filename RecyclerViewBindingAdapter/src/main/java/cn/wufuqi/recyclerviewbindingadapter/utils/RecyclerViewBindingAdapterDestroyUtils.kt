@@ -13,11 +13,15 @@ object RecyclerViewBindingAdapterDestroyUtils {
      * 销毁activity
      */
     fun destroyActivity(activity: Activity?) {
-        destroyRecyclerViewBindingAdapter(
-            (activity?.findViewById<ViewGroup>(android.R.id.content))?.getChildAt(
-                0
+        try {
+            destroyRecyclerViewBindingAdapter(
+                (activity?.findViewById<ViewGroup>(android.R.id.content))?.getChildAt(
+                    0
+                )
             )
-        )
+        } catch (_: Exception) {
+        }
+
     }
 
 

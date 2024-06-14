@@ -4,7 +4,7 @@ plugins {
 }
 apply plugin: 'kotlin-kapt'
 
-//apply from: 'gradle-plugin-mvn-push.gradle'
+apply from: 'gradle-plugin-mvn-push.gradle'
 
 android {
     compileSdkVersion 33
