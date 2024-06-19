@@ -4,6 +4,7 @@ package cn.wufuqi.recyclerviewbindingadapter.itemuibean
 import androidx.annotation.CallSuper
 import androidx.databinding.BaseObservable
 import androidx.databinding.ViewDataBinding
+import cn.wufuqi.recyclerviewbindingadapter.adapter.RecyclerViewBindingAdapter
 import cn.wufuqi.recyclerviewbindingadapter.utils.toTypeString
 
 /**
@@ -32,7 +33,7 @@ abstract class BaseBindingAdapterItem : BaseObservable() {
     abstract fun getViewXmlLayout(): Int
 
 
-    open fun onBindView(binding: ViewDataBinding) {
+    open fun onBindView(binding: ViewDataBinding,bindingHolder: RecyclerViewBindingAdapter.BindingHolder) {
 
     }
 

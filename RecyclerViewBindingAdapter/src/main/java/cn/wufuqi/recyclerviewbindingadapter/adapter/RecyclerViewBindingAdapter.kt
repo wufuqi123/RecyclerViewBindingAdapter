@@ -227,7 +227,7 @@ open class RecyclerViewBindingAdapter :
         }
 
         holder.bindData(item)
-        item.onBindView(holder.binding)
+        item.onBindView(holder.binding,holder)
         item.notifyChange()
 
 

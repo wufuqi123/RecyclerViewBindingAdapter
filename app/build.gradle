@@ -51,7 +51,7 @@ dependencies {
     //删除
     implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
 
-    // implementation project(path: ':RecyclerViewBindingAdapter')
+     implementation project(path: ':RecyclerViewBindingAdapter')
 
-    implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.6'
+//    implementation 'cn.wufuqi:RecyclerViewBindingAdapter:1.0.6'
 }
