@@ -50,3 +50,6 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.14.2'
 }
+
+group = 'com.github.wufuqi123.recyclerviewbindingadapter'
+version = '1.0.8'
