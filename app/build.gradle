@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-group = 'com.github.wufuqi123'
+group = 'cn.wufuqi.recyclerviewbindingadapter.app'
 android {
     compileSdkVersion 33
     buildToolsVersion "30.0.3"
