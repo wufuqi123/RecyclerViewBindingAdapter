@@ -1,13 +1,12 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'com.github.dcendents.android-maven'
 }
 apply plugin: 'kotlin-kapt'
 
 //apply from: 'gradle-plugin-mvn-push.gradle'
 
-group = 'com.github.wufuqi123'
+apply from: "$rootProject.projectDir/publish.gradle"
 
 android {
     compileSdkVersion 33
@@ -52,37 +51,4 @@ dependencies {
     api 'cn.wufuqi:EventEmitter:1.0.3'
 
     implementation 'com.github.bumptech.glide:glide:4.14.2'
-}
-
-
-
-
-
-// 指定编码
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-// 打包源码
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-// 制作文档(Javadoc)
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
 }
